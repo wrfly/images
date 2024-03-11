@@ -70,7 +70,7 @@ RUN dnf update -y \
     && cp ngx_conf/*.conf /etc/nginx
 
 # Set default timezone (can be overridden with -e "TZ=Continent/City")
-ENV TZ=Europe/Amsterdam \
+ENV TZ=Asia/Singapore \
     # Use jemalloc on glibc-based Linux systems to reduce the effects of memory fragmentation
     LD_PRELOAD=/usr/lib64/libjemalloc.so
 

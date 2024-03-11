@@ -75,6 +75,11 @@ ngx_int_t ngx_weserv_request_handler(ngx_http_request_t *r) {
         .set_max_redirects(lc->max_redirects)
         .set_header("User-Agent", lc->user_agent);
 
+    ngx_str_t referer;
+    if (ngx_http_arg(r, (u_char *)"referer", 7, &referer) == NGX_OK) {
+        http_request->set_header("Referer", referer);
+    }
+
     // Store the caller's request
     ctx->request = std::move(http_request);
 
